@@ -13,7 +13,7 @@ export const IntroWrapper = ({ children }: IntroWrapperProps) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false);
-    }, 3000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
