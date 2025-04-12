@@ -21,7 +21,7 @@ interface HomePageProps {
 export default function Home({ searchParams }: HomePageProps) {
   return (
     <IntroWrapper>
-      <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+      <div className="flex-1 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
         {/* Hero Section with Stars Background */}
         <div className="relative overflow-hidden">
           <div className="absolute inset-0 bg-[url('/stars.png')] opacity-20"></div>
