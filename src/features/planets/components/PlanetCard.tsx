@@ -1,19 +1,12 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { Planet } from "@/types/planet";
-import { usePlanetsStore } from "@/store/usePlanetsStore";
 
 interface PlanetCardProps {
   planet: Partial<Planet>;
 }
 
 export function PlanetCard({ planet }: PlanetCardProps) {
-  const isFavorite = usePlanetsStore((state) =>
-    state.isFavorite(planet.id || "")
-  );
-
   return (
     <Link href={`/planets/${planet.id}`}>
       <div className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-700/50">
@@ -34,7 +27,6 @@ export function PlanetCard({ planet }: PlanetCardProps) {
             <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
               {planet.name}
             </h3>
-            {isFavorite && <span className="text-yellow-400 text-xl">★</span>}
           </div>
           <div className="space-y-3">
             <p className="text-gray-300 flex items-center">

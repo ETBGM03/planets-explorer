@@ -7,18 +7,8 @@ import { planetsIntro } from "@/shared/constants/planets";
 
 export const PlanetIntro = () => {
   return (
-    <div className="size-full fixed inset-0 bg-black flex flex-col items-center justify-center z-50">
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-8"
-      >
-        <h1 className="text-4xl font-bold text-white mb-4">Planet Explorer</h1>
-        <p className="text-gray-300">Discovering the planets...</p>
-      </motion.div>
-
-      <div className="relative w-full max-w-2xl h-64">
+    <div className="flex flex-col items-center justify-center">
+      <div className="relative w-full max-w-2xl h-60">
         {planetsIntro.map((planet, index) => (
           <motion.div
             key={planet.name}
@@ -29,9 +19,9 @@ export const PlanetIntro = () => {
               opacity: 1,
             }}
             transition={{
-              duration: 2,
+              duration: 1.5,
               repeat: Infinity,
-              delay: index * 0.2,
+              delay: index * 0.1,
               ease: "easeInOut",
             }}
             className={`absolute ${planet.size} rounded-full overflow-hidden`}

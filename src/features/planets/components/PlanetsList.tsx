@@ -11,17 +11,17 @@ interface PlanetsListProps {
   };
 }
 
-export async function PlanetsList({ searchParams }: PlanetsListProps) {
+export async function PlanetsList({ searchParams = {} }: PlanetsListProps) {
   const planets = await planetsService.getAll();
 
+  const { search, sort, page } = await searchParams;
+
   // Filtering by search
-  const search = searchParams?.search || "";
   let filteredPlanets = planets.filter((planet: Partial<Planet>) =>
-    planet.name?.toLowerCase().includes(search.toLowerCase())
+    planet.name?.toLowerCase().includes(search?.toLowerCase() || "")
   );
 
   // Sorting
-  const sort = searchParams?.sort || "name-asc";
   filteredPlanets.sort((a: Partial<Planet>, b: Partial<Planet>) => {
     switch (sort) {
       case "name-asc":
@@ -36,7 +36,7 @@ export async function PlanetsList({ searchParams }: PlanetsListProps) {
   // Pagination
   const itemsPerPage = 5;
   const totalPages = Math.ceil(filteredPlanets.length / itemsPerPage);
-  let currentPage = Number(searchParams?.page || "1");
+  let currentPage = Number(page || "1");
 
   // Si la página actual es mayor que el total de páginas, volvemos a la primera página
   if (currentPage > totalPages) {
@@ -50,7 +50,7 @@ export async function PlanetsList({ searchParams }: PlanetsListProps) {
   );
 
   return (
-    <div>
+    <>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {paginatedPlanets.length > 0 ? (
           paginatedPlanets.map((planet: Partial<Planet>) => (
@@ -71,6 +71,6 @@ export async function PlanetsList({ searchParams }: PlanetsListProps) {
           currentPage={currentPage}
         />
       </div>
-    </div>
+    </>
   );
 }
