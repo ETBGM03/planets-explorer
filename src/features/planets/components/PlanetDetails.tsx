@@ -3,10 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { PlanetBasicData } from "./PlanetBasicData";
-import { PlanetOrbitData } from "./PlanetOrbitData";
 import { PlanetHeader } from "./PlanetHeader";
-import { PlanetAdditionalInfo } from "./PlanetAdditionalInfo";
+import { PlanetCardDetails } from "./PlanetCardDetails";
 
 interface PlanetDetailProps {
   planetId: string;
@@ -52,11 +50,51 @@ export async function PlanetDetails({ planetId }: PlanetDetailProps) {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <PlanetBasicData planet={planet} />
-              <PlanetOrbitData planet={planet} />
+              <PlanetCardDetails
+                title="Basic data"
+                data={[
+                  { label: "English name", value: planet.englishName },
+                  { label: "Average radius", value: `${planet.meanRadius} km` },
+                  { label: "Gravity", value: `${planet.gravity} m/s²` },
+                  {
+                    label: "Mass",
+                    value: `${planet.mass?.massValue} × 10^${planet.mass?.massExponent} kg`,
+                  },
+                  {
+                    label: "Average temperature",
+                    value: `${planet.avgTemp} K`,
+                  },
+                  { label: "Moons", value: `${planet.moons?.length} moons` },
+                ]}
+              />
+
+              <PlanetCardDetails
+                title="Orbit and rotation"
+                data={[
+                  {
+                    label: "Semi-major axis",
+                    value: `${planet.semimajorAxis} km`,
+                  },
+                  { label: "Perihelion", value: `${planet.perihelion} km` },
+                  { label: "Aphelion", value: `${planet.aphelion} km` },
+                  { label: "Inclination", value: `${planet.inclination}°` },
+                  {
+                    label: "Sideral rotation",
+                    value: `${planet.sideralRotation} hours`,
+                  },
+                ]}
+              />
             </div>
 
-            <PlanetAdditionalInfo planet={planet} />
+            <div className="mt-8">
+              <PlanetCardDetails
+                title="Additional information"
+                data={[
+                  { label: "Discovered by", value: planet.discoveredBy },
+                  { label: "Discovery date", value: planet.discoveryDate },
+                ]}
+              />
+            </div>
           </div>
         </div>
       </div>
