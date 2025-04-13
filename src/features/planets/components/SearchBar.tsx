@@ -34,6 +34,7 @@ export function SearchBar() {
       </label>
       <div className="flex">
         <input
+          id="search"
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}

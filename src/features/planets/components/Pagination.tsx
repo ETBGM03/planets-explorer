@@ -31,7 +31,7 @@ export function Pagination({
         disabled={currentPage === 1}
         className="px-4 py-2 border rounded-md disabled:opacity-50"
       >
-        Anterior
+        Back
       </button>
 
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
@@ -51,7 +51,7 @@ export function Pagination({
         disabled={currentPage === totalPages}
         className="px-4 py-2 border rounded-md disabled:opacity-50"
       >
-        Siguiente
+        Next
       </button>
     </div>
   );
