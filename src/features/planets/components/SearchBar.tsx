@@ -36,6 +36,7 @@ export function SearchBar() {
         <input
           id="search"
           type="text"
+          placeholder="Search for a planet..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="flex-grow p-2 rounded-l-md w-full border-2 border-r-0 border-gray-300 focus:outline-none"
