@@ -15,6 +15,12 @@ export const SortSelect = () => {
 
   return (
     <div className="mb-4">
+      <label
+        htmlFor="sort"
+        className="block text-sm font-medium text-gray-700 mb-1"
+      >
+        Order by:
+      </label>
       <select
         id="sort"
         value={searchParams.get("sort") || "name-asc"}

@@ -7,7 +7,6 @@ interface PlanetPageProps {
 }
 
 export default async function PlanetPage({ params }: PlanetPageProps) {
-  console.log(await params);
   const { id } = await params;
 
   return (

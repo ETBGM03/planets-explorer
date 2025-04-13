@@ -25,20 +25,27 @@ export function SearchBar() {
   }, [debouncedSearch, updateSearch]);
 
   return (
-    <div className="flex">
-      <input
-        type="text"
-        placeholder="Search for a planet..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="flex-grow p-2 rounded-l-md w-full border-2 border-r-0 border-gray-300 focus:outline-none"
-      />
-      <button
-        type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded-r-md border-2 border-l-0 border-gray-300 hover:bg-blue-600"
+    <div>
+      <label
+        htmlFor="search"
+        className="block text-sm font-medium text-gray-700 mb-1"
       >
-        Search
-      </button>
+        Search for a planet...
+      </label>
+      <div className="flex">
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="flex-grow p-2 rounded-l-md w-full border-2 border-r-0 border-gray-300 focus:outline-none"
+        />
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded-r-md border-2 border-l-0 border-gray-300 hover:bg-blue-600"
+        >
+          Search
+        </button>
+      </div>
     </div>
   );
 }
