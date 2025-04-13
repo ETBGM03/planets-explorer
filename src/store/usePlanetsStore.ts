@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import { PlanetsState } from "@/types/planetsState";
+import { PlanetsState } from "@types";
 
 export const usePlanetsStore = create<PlanetsState>()(
   persist(

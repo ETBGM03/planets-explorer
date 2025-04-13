@@ -1,9 +1,7 @@
-import PlanetDetails from "@/features/planets/components/PlanetDetails";
+import { PlanetDetails } from "@features";
 
 interface PlanetPageProps {
-  params: {
-    id: string;
-  };
+  params: Promise<{ id: string }>;
 }
 
 export default async function PlanetPage({ params }: PlanetPageProps) {

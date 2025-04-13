@@ -1,4 +1,5 @@
-import { Planet } from "@/types/planet";
+import { Planet } from "@types";
+
 import { PlanetDataSection } from "./PlanetDataSection";
 
 interface PlanetOrbitDataProps {

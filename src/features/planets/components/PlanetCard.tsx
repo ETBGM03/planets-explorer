@@ -1,6 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
-import { Planet } from "@/types/planet";
+import Link from "next/link";
+
+import { Planet } from "@types";
 
 interface PlanetCardProps {
   planet: Partial<Planet>;

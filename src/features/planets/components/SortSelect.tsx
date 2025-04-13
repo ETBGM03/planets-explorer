@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { sortOptions } from "@/shared/constants/sortSelect";
+import { sortOptions } from "@shared";
 
 export const SortSelect = () => {
   const router = useRouter();

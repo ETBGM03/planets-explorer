@@ -1,4 +1,4 @@
-import { FavoriteButton } from "@/shared/components/ui/FavoriteButton";
+import { FavoriteButton } from "@shared";
 
 interface PlanetHeaderProps {
   name: string;

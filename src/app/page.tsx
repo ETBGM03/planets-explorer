@@ -1,18 +1,14 @@
 import { Suspense } from "react";
 
-import {
-  PlanetsList,
-  SearchBar,
-  SortSelect,
-} from "@/features/planets/components";
-import { PlanetIntro } from "@/shared/components/feedback/PlanetIntro";
+import { PlanetsList, SearchBar, SortSelect } from "@features";
+import { PlanetIntro } from "@shared";
 
 interface HomePageProps {
-  searchParams?: {
+  searchParams: Promise<{
     search?: string;
     sort?: string;
     page?: string;
-  };
+  }>;
 }
 
 export default function Home({ searchParams }: HomePageProps) {

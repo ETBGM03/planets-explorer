@@ -1,6 +1,6 @@
 "use client";
-import { usePlanetsStore } from "@/store/usePlanetsStore";
 import React from "react";
+import { usePlanetsStore } from "@store";
 
 export default function PlanetFavorite({ planetId }: { planetId: string }) {
   const { isFavorite, addFavorite, removeFavorite } = usePlanetsStore();

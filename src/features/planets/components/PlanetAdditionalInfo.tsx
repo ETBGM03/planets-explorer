@@ -1,4 +1,4 @@
-import { Planet } from "@/types/planet";
+import { Planet } from "@types";
 
 interface PlanetAdditionalInfoProps {
   planet: Partial<Planet>;

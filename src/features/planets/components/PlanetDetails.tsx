@@ -12,7 +12,7 @@ interface PlanetDetailProps {
   planetId: string;
 }
 
-export default async function PlanetDetails({ planetId }: PlanetDetailProps) {
+export async function PlanetDetails({ planetId }: PlanetDetailProps) {
   try {
     const planet = await planetsService.getById(planetId);
 

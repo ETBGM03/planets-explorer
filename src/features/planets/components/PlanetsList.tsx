@@ -1,17 +1,18 @@
-import { planetsService } from "@/services/planets/api";
-import { Planet } from "@/types/planet";
+import { planetsService } from "@services";
+import { Planet } from "@types";
+
 import { PlanetCard } from "./PlanetCard";
 import { Pagination } from "./Pagination";
 
 interface PlanetsListProps {
-  searchParams?: {
+  searchParams: Promise<{
     search?: string;
     sort?: string;
     page?: string;
-  };
+  }>;
 }
 
-export async function PlanetsList({ searchParams = {} }: PlanetsListProps) {
+export async function PlanetsList({ searchParams }: PlanetsListProps) {
   const planets = await planetsService.getAll();
 
   const { search, sort, page } = await searchParams;

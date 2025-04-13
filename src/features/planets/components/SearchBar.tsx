@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { useDebounce } from "@/shared/hooks/useDebounce";
+import { useDebounce } from "@shared";
 
 export function SearchBar() {
   const router = useRouter();
