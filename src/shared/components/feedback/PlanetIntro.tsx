@@ -8,7 +8,8 @@ import { planetsIntro } from "@/shared/constants/planets";
 export const PlanetIntro = () => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="relative w-full max-w-2xl h-60">
+      <h1 className="text-2xl font-bold">Loading planets...</h1>
+      <div className="relative w-full max-w-2xl h-40">
         {planetsIntro.map((planet, index) => (
           <motion.div
             key={planet.name}
