@@ -26,6 +26,8 @@ export async function PlanetDetails({ planetId }: PlanetDetailProps) {
             alt="Back"
             width={20}
             height={20}
+            priority
+            unoptimized
           />
           Back to planets
         </Link>
