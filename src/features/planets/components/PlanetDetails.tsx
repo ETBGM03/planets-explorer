@@ -36,11 +36,13 @@ export async function PlanetDetails({ planetId }: PlanetDetailProps) {
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 h-72 flex items-center justify-center">
             <div className="w-56 h-56 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-2xl">
               <Image
-                src={`/images/${planet.name}.webp`}
+                src={`/images/${planet.name?.toLowerCase()}.webp`}
                 alt={planet.name || ""}
                 className="w-full h-full object-contain bg-black rounded-full"
                 width={400}
                 height={400}
+                priority
+                unoptimized
               />
             </div>
           </div>
