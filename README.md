@@ -1,6 +1,6 @@
 # Planet Explorer 🌍
 
-Una aplicación web interactiva para explorar y aprender sobre los planetas del sistema solar. Desarrollada con Next.js 14, TypeScript y Tailwind CSS.
+Una aplicación web interactiva para explorar y aprender sobre los planetas del sistema solar. Desarrollada con Next.js 15, TypeScript y Tailwind CSS.
 
 ## 🚀 Características
 
@@ -29,7 +29,7 @@ Una aplicación web interactiva para explorar y aprender sobre los planetas del 
 
 1. Clonar el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/planet-explorer.git
+git clone https://github.com/ETBGM03/planets-explorer.git
 cd planet-explorer
 ```
 
@@ -38,11 +38,18 @@ cd planet-explorer
 npm install
 # o
 yarn install
+# o
+pnpm install
 ```
 
 3. Crear archivo de variables de entorno:
 ```bash
-cp .env.example .env.local
+cp .env
+```
+
+4. Agregar este valor al .env
+```bash
+NEXT_PUBLIC_API_URL=https://api.le-systeme-solaire.net/rest
 ```
 
 4. Iniciar el servidor de desarrollo:
@@ -50,6 +57,8 @@ cp .env.example .env.local
 npm run dev
 # o
 yarn dev
+# o
+pnpm run dev
 ```
 
 La aplicación estará disponible en `http://localhost:3000`
@@ -70,36 +79,12 @@ src/
 │   │   │   ├── PlanetDetails.tsx
 │   │   │   ├── PlanetsList.tsx
 │   │   │   └── index.ts   # Barrel file para exportaciones
-│   │   ├── hooks/         # Hooks específicos de planetas
-│   │   │   ├── usePlanetSearch.ts
-│   │   │   ├── usePlanetSort.ts
-│   │   │   └── index.ts
-│   │   ├── types/         # Tipos específicos de la feature
-│   │   │   └── planet.types.ts
-│   │   └── utils/         # Utilidades específicas
-│   │       └── planet-formatters.ts
-│   └── favorites/
-│       ├── components/
-│       │   └── FavoriteButton.tsx
-│       └── hooks/
-│           └── useFavorites.ts
 ├── shared/                # Componentes, hooks y utilidades compartidas
 │   ├── components/        # Componentes genéricos reutilizables
 │   │   ├── ui/            # Componentes de UI básicos
-│   │   │   ├── Button/
-│   │   │   ├── Card/
-│   │   │   ├── Input/
-│   │   │   └── Select/
-│   │   ├── layout/        # Componentes estructurales
-│   │   │   ├── Container.tsx
-│   │   │   ├── Header.tsx
-│   │   │   └── Footer.tsx
+│   │   │   ├── FavoriteButton
 │   │   └── feedback/      # Componentes de feedback
-│   │       ├── ErrorMessage.tsx
-│   │       └── Loading.tsx
-│   ├── hooks/             # Hooks genéricos
-│   │   ├── useQueryParams.ts
-│   │   └── usePagination.ts
+│   │       ├── PlanetIntro.tsx
 │   └── utils/             # Utilidades compartidas
 │       ├── api-client.ts  # Cliente API abstracto
 │       └── helpers.ts     # Funciones de ayuda
@@ -108,12 +93,11 @@ src/
 │       ├── api.ts         # Funciones de acceso a API
 │       └── transformers.ts # Transformadores de datos
 ├── store/                 # Estado global con Zustand
-│   ├── slices/
-│   │   ├── planets.slice.ts
-│   │   └── favorites.slice.ts
-│   └── index.ts           # Exportaciones y store combinado
-└── styles/                # Estilos globales (si es necesario)
-    └── globals.css          # Estilos globales
+│   ├── usePlanetsStore    # Estado para guardar favoritos
+│   └── index.ts           # Exportaciones barrel
+└── types/                 # Tipos generales
+    ├── planet.ts          # Tipos de respuesta de la API
+    └── planetState.ts     # Tipos del state
 ```
 
 ## 🎨 Decisiones Técnicas
@@ -138,3 +122,7 @@ Zustand proporciona una gestión de estado simple pero potente. Se utilizó prin
 ### Manejo de API
 
 Se realizó una abstracción de las llamadas a la API en un servicio separado para mantener la lógica de negocio aislada de los componentes de UI.
+
+### Jest y React Testing Library
+
+Se usaron estas libs para crear test unitarios
