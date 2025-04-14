@@ -15,10 +15,12 @@ export function PlanetCard({ planet }: PlanetCardProps) {
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-32 h-32 rounded-full bg-gray-900/80 backdrop-blur-sm flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-300 border border-gray-700/50">
               <Image
-                src={`/images/${planet.name}.webp`}
+                src={`/images/${planet.name?.toLowerCase()}.webp`}
                 alt={planet.name || ""}
                 width={200}
                 height={200}
+                priority
+                unoptimized
               />
             </div>
           </div>
