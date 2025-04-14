@@ -26,10 +26,7 @@ export function SearchBar() {
 
   return (
     <div>
-      <label
-        htmlFor="search"
-        className="block text-sm font-medium text-gray-700 mb-1"
-      >
+      <label htmlFor="search" className="block text-sm font-medium text-gray-700 mb-1">
         Search for a planet...
       </label>
       <div className="flex">

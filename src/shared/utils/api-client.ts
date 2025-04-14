@@ -48,28 +48,28 @@ axiosInstance.interceptors.response.use(
 
 // abstract client API
 export const apiClient = {
-  async get<T = any>(url: string, params?: Record<string, any>): Promise<T> {
+  async get<T>(url: string, params?: Record<string, unknown>): Promise<T> {
     const response: AxiosResponse<T> = await axiosInstance.get(url, { params });
     return response.data;
   },
 
-  async post<T = any>(url: string, data?: any): Promise<T> {
+  async post<T>(url: string, data?: Record<string, unknown> | unknown): Promise<T> {
     const response: AxiosResponse<T> = await axiosInstance.post(url, data);
     return response.data;
   },
 
-  async put<T = any>(url: string, data?: any): Promise<T> {
+  async put<T>(url: string, data?: Record<string, unknown> | unknown): Promise<T> {
     const response: AxiosResponse<T> = await axiosInstance.put(url, data);
     return response.data;
   },
 
-  async delete<T = any>(url: string): Promise<T> {
+  async delete<T>(url: string): Promise<T> {
     const response: AxiosResponse<T> = await axiosInstance.delete(url);
     return response.data;
   },
 
   // custom request
-  async request<T = any>(config: AxiosRequestConfig): Promise<T> {
+  async request<T = unknown>(config: AxiosRequestConfig): Promise<T> {
     const response: AxiosResponse<T> = await axiosInstance(config);
     return response.data;
   },

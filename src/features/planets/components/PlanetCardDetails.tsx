@@ -4,7 +4,7 @@ import { PlanetDataItem } from "./PlanetDataItem";
 interface DataItem {
   label: string;
   value: string | number | undefined;
-  formatter?: (value: any) => string;
+  formatter?: (value: string | number | undefined) => string;
 }
 
 interface PlanetCardDetailsProps {
@@ -18,11 +18,7 @@ export const PlanetCardDetails = ({ title, data }: PlanetCardDetailsProps) => (
       <PlanetDataItem
         key={index}
         label={item.label}
-        value={
-          item.formatter
-            ? item.formatter(item.value)
-            : item.value?.toString() || "N/A"
-        }
+        value={item.formatter ? item.formatter(item.value) : item.value?.toString() || "N/A"}
       />
     ))}
   </PlanetDataSection>

@@ -18,7 +18,7 @@ export async function PlanetsList({ searchParams }: PlanetsListProps) {
   const { search, sort, page } = await searchParams;
 
   // Filtering by search
-  let filteredPlanets = planets.filter((planet: Partial<Planet>) =>
+  const filteredPlanets = planets.filter((planet: Partial<Planet>) =>
     planet.name?.toLowerCase().includes(search?.toLowerCase() || "")
   );
 

@@ -99,7 +99,7 @@ export async function PlanetDetails({ planetId }: PlanetDetailProps) {
         </div>
       </div>
     );
-  } catch (error) {
+  } catch {
     notFound();
   }
 }

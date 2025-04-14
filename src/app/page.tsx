@@ -23,9 +23,8 @@ export default function Home({ searchParams }: HomePageProps) {
               Planets Explorer
             </h1>
             <p className="text-gray-300 max-w-2xl mx-auto text-lg">
-              Explore the wonders of our solar system. Discover detailed
-              information about each planet, from basic features to orbital
-              data.
+              Explore the wonders of our solar system. Discover detailed information about each
+              planet, from basic features to orbital data.
             </p>
           </div>
         </div>
@@ -37,10 +36,14 @@ export default function Home({ searchParams }: HomePageProps) {
         <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-xl p-6 mb-12 border border-gray-700/50">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="md:col-span-2">
-              <SearchBar />
+              <Suspense fallback={<div className="h-12 bg-gray-700/50 rounded animate-pulse" />}>
+                <SearchBar />
+              </Suspense>
             </div>
             <div>
-              <SortSelect />
+              <Suspense fallback={<div className="h-12 bg-gray-700/50 rounded animate-pulse" />}>
+                <SortSelect />
+              </Suspense>
             </div>
           </div>
         </div>
