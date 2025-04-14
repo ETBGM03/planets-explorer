@@ -1,11 +1,4 @@
 module.exports = {
   // Lint & Prettify TS and JS files
-  "**/*.(ts|tsx|js)": (filenames) => [
-    `pnpm eslint ${filenames.join(" ")}`,
-    `pnpm prettier --write ${filenames.join(" ")}`,
-  ],
-
-  // Prettify only Markdown and JSON files
-  "**/*.(md|json)": (filenames) =>
-    `pnpm prettier --write ${filenames.join(" ")}`,
+  "**/*.(ts|tsx|js)": (filenames) => [`pnpm eslint ${filenames.join(" ")}`],
 };
